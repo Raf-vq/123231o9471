@@ -14,6 +14,12 @@ def valid_input():
     else:
         print("invalid")
         return valid_input()
+def game_move(a,b):
+    if a%3 == 0:
+        globals()['l'+str(a)] = globals()['l'+str(a)][:4]+b
+    if a%3 == 1:
+    else:
+ 
 
 print(l1)
 print(divisor)
