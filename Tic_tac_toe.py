@@ -26,30 +26,20 @@ def game_print():
     print(l2)
     print(divisor)
     print(l3)
-def game_win_check(a,b):
-    if l1[0]+l1[2]+l1[4] == a*3:
-        print("Player 1 won")
-        return True
-    if l2[0]+l2[2]+l2[4] == a*3:
-        print("Player 1 won")
-        return True
-    if l3[0]+l3[2]+l3[4] == a*3:
-        print("Player 1 won")
-        return True
+def game_win_check(a,b,c):
+    for i in range(1,4):
+        if globals()['l'+str(i)][0]+globals()['l'+str(i)][2]+globals()['l'+str(i)][4] == a*3:
+            print("Player",c,"won")
+            return True
+    for i in range(0,5,2):
+        if l1[i]+l2[i]+l3[i] == a*3:
+            print("Player",c,"won")
+            return True
     if l1[0]+l2[2]+l3[4] == a*3:
-        print("Player 1 won")
+        print("Player",c,"won")
         return True
     if l3[0]+l2[2]+l1[4] == a*3:
-        print("Player 1 won")
-        return True
-    if l1[0]+l2[0]+l3[0] == a*3:
-        print("Player 1 won")
-        return True
-    if l1[2]+l2[2]+l3[2] == a*3:
-        print("Player 1 won")
-        return True
-    if l1[4]+l2[4]+l3[4] == a*3:
-        print("Player 1 won")
+        print("Player",c,"won")
         return True
     if len(b) == 0:
         print("Stalemate")
@@ -60,7 +50,7 @@ while game == False:
     inp = valid_input()
     game_move(inp,"x")
     game_print()
-    if game_win_check("x",opt) == True:
+    if game_win_check("x",opt,1) == True:
         game = True
     if game == True:
         break
@@ -68,5 +58,5 @@ while game == False:
     inp = valid_input()
     game_move(inp,"o")
     game_print()
-    if game_win_check("o",opt) == True:
+    if game_win_check("o",opt,2) == True:
         game = True
